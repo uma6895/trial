@@ -1,0 +1,48 @@
+.full
+{
+    color:brown;
+    background:palegoldenrod;
+}
+.container1
+{
+    padding:20px;
+    margin-bottom: 1px;
+    text-align: justify;
+  
+}
+
+.container2
+{
+    padding:20px;
+    border-bottom: 2px solid brown;
+}
+fieldset
+{
+    border:1px solid brown;
+}
+.t
+{
+    width:100%;
+    text-align: center;
+    margin-top: 10px;
+    border:2px solid brown;
+    padding:20px;
+    border-collapse: collapse;
+}
+th,td
+{
+    border:1px solid brown;
+    padding: 10px;
+
+}
+.h{
+    color:palegoldenrod;
+    background: brown;
+}
+#ui{
+    margin-right: 20px;
+}
+button{
+    background:brown;
+    color:palegoldenrod;
+}

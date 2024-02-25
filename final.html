@@ -1,0 +1,222 @@
+<html>
+<head>
+    <link href="new.css" type="text/css" rel="stylesheet">
+</head>
+<body class="full">
+<div class="title">
+<p style="font-family:Georgia, 'Times New Roman', Times, serif; font-size:65px ; text-align: center;"><b>PANTASTIC BITES</b></p>
+</div>
+<img src="C:\gb.PY\imgcomp.py\foodtruck.jpg" style="width:170px;height:170px;margin-left:670px">
+<div class="container">
+    <div class="container1">
+        <h3> <b>CUSTOMER DETAILS</b></h3>
+        <br>
+        <fieldset>
+        <form>
+            <label id="ui">Full Name</label>
+            <input type="text" id="name" style="margin-left:50px">
+            <br>
+            <br>
+            <label id="ui">Email</label>
+            <input type="text" id="email" style="margin-left:79px">
+            <br>
+            <br>
+            <label id="ui">Phone Number</label>
+            <input type="text" id="mobile" style="margin-left:20px">
+        </form>
+        </fieldset>
+    </div>
+
+    <div class="container2">
+            <h3><b> ORDERS </b></h3>
+            <br>
+            <fieldset>
+            <form>
+                <label>INDIAN</label>
+                <br>
+                <label>Panipuri    (RS. 20)</label>
+                <input type="text" id="Panipuri" style="margin-left:24px">
+                <br>
+                <br>
+                <label>MEXICAN</label>
+                <br>
+                <label>Tacos (RS. 50)</label>
+                <input type="text" id="Tacos" style="margin-left:40px">
+                <br>
+                <br>
+                <label>ITALIAN</label>
+                <br>
+                <label>Arancina (RS. 70)</label>
+                <input type="text" id="Arancina" style="margin-left:19px">
+                <br>
+                <br>
+                <label>CHINESE</label>
+                <br>
+                <label>Baozi (RS. 30)</label>
+                <input type="text" id="Baozi" style="margin-left:40px">
+                <br>
+                <br>
+                <label>KOREAN</label>
+                <br>
+                <label>Corndog (RS. 50)</label>
+                <input type="text" id="Corndog" style="margin-left:22px">
+                <br>
+            </form>
+            </fieldset>
+    </div>
+
+<div class="container3">
+    <h2 ><b> BILL</b> </h2>
+    <h3> Name : <span id="name2"></span></h3>
+    <h3> Email: <span id="email2"></span></h3>
+    <h3> Phone Number : <span id="mobile2"></span></h3>
+    <table class="t">
+        <thead>
+            <tr class="h">
+                <th>ITEMS</th>
+                <th>PRICE</th>
+                <th>QTY</th>
+                <th>AMOUNT</th>
+            </tr>
+        </thead>
+        <tbody id="bill">
+            
+        </tbody>
+    </table>
+    <h2>Total Amount: Rs. <span id="amount">0</span></h2>
+    <button id="downloadBillButton">Download Bill</button>
+</div>
+</div>
+
+<script>
+    var Panipuri= 20,
+     Tacos = 50,
+     Arancina=70,
+     Baozi=30,
+     Corndog=50;
+
+    var Panipuri_q= 0,
+     Tacos_q = 0,
+     Arancina_q=0,
+     Baozi_q=0,
+     Corndog_q=0;
+
+    var name = "",
+    mobile="",
+     email = "";
+
+    var  Panipurib= "",
+     Tacosb = "",
+     Arancinab ="",
+     Baozib ="",
+     Corndogb ="";
+    var total_amount = 0;
+
+    document.getElementById("name").addEventListener("keyup", function () {document.getElementById("name2").innerHTML = this.value;});
+ 
+    document.getElementById("email").addEventListener("keyup", function () {document.getElementById("email2").innerHTML = this.value;});
+ 
+    document.getElementById("mobile").addEventListener("keyup", function () {document.getElementById("mobile2").innerHTML = this.value;});
+ 
+    document.getElementById("Panipuri").addEventListener("keyup", function () {
+     if (this.value == "" || this.value == 0) {
+      Panipurib = "";
+      Panipuri_q = 0;
+      showBill();
+     } else {
+      Panipuri_q = this.value;
+      Panipurib = "<tr><td>Panipuri</td><td>Rs. " + Panipuri + "</td><td>" + Panipuri_q + "</td><td>" + Panipuri_q + "x" + Panipuri_q + " = " + Panipuri * Panipuri_q + "</td></tr>";
+      showBill();
+     }
+    });
+ 
+    document.getElementById("Tacos").addEventListener("keyup", function () {
+     if (this.value == "" || this.value == 0) {
+      Tacosb = "";
+      Tacos_q = 0;
+      showBill();
+     } else {
+      Tacos_q = this.value;
+      Tacosb = "<tr><td>Tacos</td><td>Rs. " + Tacos + "</td><td>" + Tacos_q + "</td><td>" + Tacos + "x" + Tacos_q + " = " + Tacos * Tacos_q + "</td></tr>";
+      showBill();
+     }
+    });
+ 
+    document.getElementById("Arancina").addEventListener("keyup", function () {
+     if (this.value == "" || this.value == 0) {
+      Arancinab = "";
+      Arancina_q = 0;
+      showBill();
+     } else {
+      Arancina_q = this.value;
+      Arancinab = "<tr><td>Arancina</td><td>Rs. " + Arancina + "</td><td>" + Arancina_q + "</td><td>" + Arancina + "x" + Arancina_q + " = " + Arancina * Arancina_q + "</td></tr>";
+      showBill();
+     }
+    });
+ 
+    document.getElementById("Baozi").addEventListener("keyup", function () {
+     if (this.value == "" || this.value == 0) {
+      Baozib = "";
+      Baozi_q = 0;
+      showBill();
+     } else {
+      Baozi_q = this.value;
+      Baozib = "<tr><td>Baozi</td><td>Rs. " + Baozi + "</td><td>" + Baozi_q + "</td><td>" + Baozi + "x" + Baozi_q + " = " + Baozi * Baozi_q + "</td></tr>";
+      showBill();
+     }
+    });
+
+    document.getElementById("Corndog").addEventListener("keyup", function () {
+     if (this.value == "" || this.value == 0) {
+      Corndogb = "";
+      Corndog_q = 0;
+      showBill();
+     } else {
+      Corndog_q = this.value;
+      Corndogb = "<tr><td>Corndog</td><td>Rs. " + Corndog + "</td><td>" + Corndog_q + "</td><td>" + Corndog + "x" + Corndog_q + " = " + Corndog * Corndog_q + "</td></tr>";
+      showBill();
+     }
+    });
+ 
+    function showBill() 
+    {
+     document.getElementById("bill").innerHTML = Panipurib + Tacosb + Arancinab + Baozib + Corndogb;
+     document.getElementById("amount").innerHTML = Panipuri * Panipuri_q + Tacos * Tacos_q + Arancina * Arancina_q + Baozi * Baozi_q + Corndog * Corndog_q;
+    }
+ 
+    // Function to download the bill as a text file
+    document.getElementById("downloadBillButton").addEventListener("click", function() {
+     // Extract bill information
+     var name = document.getElementById("name2").textContent;
+     var email = document.getElementById("email2").textContent;
+     var mobile = document.getElementById("mobile2").textContent;
+     var billDetails = document.getElementById("bill").innerHTML;
+     var totalAmount = document.getElementById("amount").textContent;
+ 
+     // Construct bill content
+     var billContent = "Customer Details:\n";
+     billContent += "Name: " + name + "\n";
+     billContent += "Email: " + email + "\n";
+     billContent += "Mobile: " + mobile + "\n\n";
+     billContent += "Bill Details:\n" + billDetails + "\n";
+     billContent += "Total Amount: Rs. " + totalAmount + "\n";
+ 
+     // Create a Blob containing the bill content
+     var billBlob = new Blob([billContent], { type: "text/plain" });
+ 
+     // Create a link element to trigger the download
+     var link = document.createElement("a");
+     link.href = URL.createObjectURL(billBlob);
+     link.download = "bill.txt";
+ 
+     // Append the link to the body and trigger the download
+     document.body.appendChild(link);
+     link.click();
+ 
+     // Cleanup
+     document.body.removeChild(link);
+    });
+   </script>
+
+</body>
+</html>
